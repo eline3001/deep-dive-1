@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bit Academy </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
+    <script>
+      function toggleRooster() {
+    closeAllDropdowns();
+
+    var rooster = document.getElementById("rooster-boxen");
+    var footer = document.querySelector("footer");
+    rooster.classList.toggle("is-hidden");
+
+    if (!rooster.classList.contains("is-hidden")) {
+        rooster.style.backgroundColor = "#209cee";
+        footer.style.backgroundColor = "#209cee";
+    } else {
+        rooster.style.backgroundColor = "transparent";
+        footer.style.backgroundColor = "transparent";
+    }
+}
+
+function toggleDoelen() {
+    closeAllDropdowns();
+
+    var doelen = document.getElementById("doelen-boxen");
+    var footer = document.querySelector("footer");
+    doelen.classList.toggle("is-hidden");
+
+    if (!doelen.classList.contains("is-hidden")) {
+        doelen.style.backgroundColor = "#209cee";
+        footer.style.backgroundColor = "#209cee";
+    } else {
+        doelen.style.backgroundColor = "transparent";
+        footer.style.backgroundColor = "transparent";
+    }
+}
+
+function toggleFormulier() {
+    closeAllDropdowns();
+
+    var formulier = document.getElementById("formulier-box");
+    var footer = document.querySelector("footer");
+    formulier.classList.toggle("is-hidden");
+
+    if (!formulier.classList.contains("is-hidden")) {
+        formulier.style.backgroundColor = "#209cee";
+        footer.style.backgroundColor = "#209cee";
+    } else {
+        formulier.style.backgroundColor = "transparent";
+        footer.style.backgroundColor = "transparent";
+    }
+}
+
+function closeAllDropdowns() {
+    var rooster = document.getElementById("rooster-boxen");
+    var doelen = document.getElementById("doelen-boxen");
+    var formulier = document.getElementById("formulier-box");
+    var footer = document.querySelector("footer");
+
+    if (!rooster.classList.contains("is-hidden")) {
+        rooster.classList.add("is-hidden");
+        rooster.style.backgroundColor = "transparent";
+    }
+    if (!doelen.classList.contains("is-hidden")) {
+        doelen.classList.add("is-hidden");
+        doelen.style.backgroundColor = "transparent";
+    }
+    if (!formulier.classList.contains("is-hidden")) {
+        formulier.classList.add("is-hidden");
+        formulier.style.backgroundColor = "transparent";
+    }
+
+    footer.style.backgroundColor = "transparent";
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
+});
+
+    </script>
+</head>
+
+<body style="background-image: url('achtergrond1.avif'); background-size: cover; background-repeat: no-repeat; height: 100vh; margin: 0; display: flex; flex-direction: column;">
+
+    <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <p class="navbar-item">
+                    <img src="logo_black.png" alt="Logo">
+                </p>
+                <a class="navbar-item">
+                    <strong>Naam: Eline Kempe</strong>
+                </a>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-light" href="docent.html">
+                            Log in docent
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section" style="flex-grow: 1; display: flex; justify-content: center; align-items: center; height: 150px;">
+        <h1 class="title has-text-white has-text-centered">
+            <strong>Welkom bij de Bit Academy</strong>
+        </h1>
+    </section>
+
+    <section class="section" style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 100px;">
+        <img src="logo_white.png" alt="Bit Academy afbeelding" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+    </section>
+
+    <section class="section" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; padding-top: 10px; margin-top: 0px;">
+        <button class="button is-warning is-fullwidth is-medium is-focused" onclick="toggleRooster()">Bekijk Rooster</button>
+        <button class="button is-warning is-fullwidth is-medium is-focused" onclick="toggleDoelen()">Doelen van vandaag</button>
+        <button class="button is-warning is-fullwidth is-medium is-focused" onclick="toggleFormulier()">Doel van vandaag invullen</button>
+    </section>
+
+    <div id="doelen-boxen" class="is-hidden">
+        <section class="section" style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+            <h1 class="title has-text-white" style="text-align: center; margin-bottom: 20px;">
+                <strong>Doelen van vandaag</strong>
+            </h1>
+            <div class="container">
+                <div class="box">
+                    <h3 class="title is-5">Rekenen</h3>
+                    <p class="has-text-weight-semibold has-text-link">Voltooi hoofdstuk 2 van de rekentoets.</p>
+                </div>
+
+                <div class="box">
+                    <h3 class="title is-5">Programmeren</h3>
+                    <p class="has-text-weight-semibold has-text-link">Werk verder aan de opdrachten en verbeter je code.</p>
+                </div>
+
+                <div class="box">
+                    <h3 class="title is-5">Engels</h3>
+                    <p class="has-text-weight-semibold has-text-link">Lees hoofdstuk 2 paragraaf 4 en maak aantekeningen.</p>
+                </div>
+
+                <div class="box">
+                    <h3 class="title is-5">Nederlands</h3>
+                    <p class="has-text-weight-semibold has-text-link">Bereid je voor op de luistertoets (oordopjes meenemen).</p>
+                </div>
+
+                <div class="box">
+                    <h3 class="title is-5">Burgerschap</h3>
+                    <p class="has-text-weight-semibold has-text-link">Maak je huiswerk voor deze week af.</p>
+                </div>
+
+                <div class="box">
+                    <h3 class="title is-5">Programmeren</h3>
+                    <p class="has-text-weight-semibold has-text-link">Doe een coding sessie om je vaardigheden verder te verbeteren.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="rooster-boxen" class="is-hidden">
+        <section class="section" style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+            <h1 class="title has-text-white" style="text-align: center; margin-bottom: 20px;">
+                <strong>Rooster</strong>
+            </h1>
+
+        <div class="container">
+            <div class="box">
+                <h3 class="title is-5">Rekenen</h3>
+                <p class="has-text-weight-semibold has-text-link">Tijd: 9:00 - 9:45</p>
+                <p>Rekentoets hoofdstuk 2</p>
+            </div>
+
+            <div class="box">
+                <h3 class="title is-5">Programmeren</h3>
+                <p class="has-text-weight-semibold has-text-link">Tijd: 9:45 - 10:30</p>
+                <p>Ga verder met je opdrachten</p>
+            </div>
+
+            <div class="box">
+                <h3 class="title is-5">Engels</h3>
+                <p class="has-text-weight-semibold has-text-link">Tijd: 10:45 - 11:30</p>
+                <p>We gaan aan hoofdstuk 2 paragraaf 4 werken.</p>
+            </div>
+
+            <div class="box">
+                <h3 class="title is-5">Nederlands</h3>
+                <p class="has-text-weight-semibold has-text-link">Tijd: 11:30 - 12:15</p>
+                <p>Luister toets. Neem oordopjes mee</p>
+            </div>
+
+            <div class="box">
+                <h3 class="title is-5">Burgerschap</h3>
+                <p class="has-text-weight-semibold has-text-link">Tijd: 13:00 - 13:45</p>
+                <p>Maak het huiswerk voor deze week af</p>
+            </div>
+
+            <div class="box">
+                <h3 class="title is-5">Programmeren</h3>
+                <p class="has-text-weight-semibold has-text-link">Tijd: 13:45 - 14:30</p>
+                <p>Coding sessie</p>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <div id="formulier-box" class="is-hidden">
+        <section class="section" style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+            <h1 class="title has-text-white" style="text-align: center; margin-bottom: 20px;">
+                <strong>Formulier</strong>
+            </h1>
+            <div class="container">
+                <div class="box">
+                    <form action="#" method="post">
+                        <div class="field">
+                            <label class="label">Naam</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Voer je naam in">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Jouw dagdoel van vandaag</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="Schrijf hier je opmerkingen"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-link" type="submit">Verzenden</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer style="display: flex; justify-content: center; align-items: center; color: white;">
+        <p>Belangrijke links voor leerlingen:</p>
+        <a href="https://www.talland.nl/" style="color: white;">Talland</a> |
+        <a href="https://www.nexed.com/" style="color: white;">Nexed</a> |
+        <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=5e3ce6c0-2b1f-4285-8d4b-75ee78787346&scope=openId%20profile%20openid%20offline_access&redirect_uri=https%3A%2F%2Fteams.microsoft.com%2Fv2&client-request-id=01933f69-767c-7335-8f35-e79998653ce3&response_mode=fragment&response_type=code&x-client-SKU=msal.js.browser&x-client-VER=3.18.0&client_info=1&code_challenge=7J07Iu8sHPeLUUaerzHOjuWHdk-DXqignNBuLt5YmBE&code_challenge_method=S256&nonce=01933f69-767c-7600-8ac4-84def61d5955&state=eyJpZCI6IjAxOTMzZjY5LTc2N2MtNzk5Zi1iNDg0LTE5YzFmNjA5OWIyZCIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D" style="color: white;">Teams</a>
+    </footer>
+    
+</body>
+</html>

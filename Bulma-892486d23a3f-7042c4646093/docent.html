@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docent Dagdoelen</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
+  <script>
+    function toggleStatus(status) {
+      const statusText = document.getElementById('status-text');
+      const statusMessage = document.getElementById('status-message');
+      
+      if (status === 'approve') {
+        statusText.textContent = 'Goedkeuring: Doel is goedgekeurd!';
+        statusMessage.classList.remove('has-text-danger');
+        statusMessage.classList.add('has-text-success');
+        statusMessage.classList.remove('is-hidden');
+      } else {
+        statusText.textContent = 'Afkeuring: Doel is afgekeurd.';
+        statusMessage.classList.remove('has-text-success');
+        statusMessage.classList.add('has-text-danger');
+        statusMessage.classList.remove('is-hidden');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        if ($navbarBurgers.length > 0) {
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+        }
+      });
+  </script>
+</head>
+
+<body style="background-image: url('achtergrond1.avif'); background-size: cover; background-repeat: no-repeat; height: 100vh; margin: 0; display: flex; flex-direction: column;">
+
+  <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <p class="navbar-item">
+          <img src="logo_black.png" alt="Logo">
+        </p>
+        <a class="navbar-item">
+          <strong>Naam: Ties Noordhuis</strong>
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-light" href="index.html">
+              Terug naar leerling
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section" style="flex-grow: 1; display: flex; justify-content: center; align-items: center;">
+    <h1 class="title has-text-white"><strong>Goedkeuren of Afkeuren van Dagdoelen</strong></h1>
+  </section>
+
+  <section class="section" style="display: flex; justify-content: center; align-items: center; gap: 10px; padding-top: 50px; margin-top: 30px;">
+    <div class="container" style="max-width: 800px;">
+      <div class="box">
+        <h3 class="title is-5">Student: <strong>Eline Kempe</strong></h3>
+        <p><strong>Voorgesteld Dagdoel:</strong> Werk verder aan de opdracht voor Programmeren en zorg dat het project morgen klaar is.</p>
+      </div>
+
+      <div class="buttons" style="margin-bottom: 20px;">
+        <button class="button is-success" onclick="toggleStatus('approve')">Goedkeuren</button>
+        <button class="button is-danger" onclick="toggleStatus('reject')">Afkeuren</button>
+      </div>
+
+      <div id="status-message" class="notification is-hidden">
+        <p id="status-text"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="display: flex; justify-content: center; align-items: center; color: white;">
+    <p>Belangrijke links voor leerlingen:</p>
+    <a href="https://www.talland.nl/" style="color: white;">Talland</a> |
+    <a href="https://www.nexed.com/" style="color: white;">Nexed</a> |
+    <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=5e3ce6c0-2b1f-4285-8d4b-75ee78787346&scope=openId%20profile%20openid%20offline_access&redirect_uri=https%3A%2F%2Fteams.microsoft.com%2Fv2&client-request-id=01933f69-767c-7335-8f35-e79998653ce3&response_mode=fragment&response_type=code&x-client-SKU=msal.js.browser&x-client-VER=3.18.0&client_info=1&code_challenge=7J07Iu8sHPeLUUaerzHOjuWHdk-DXqignNBuLt5YmBE&code_challenge_method=S256&nonce=01933f69-767c-7600-8ac4-84def61d5955&state=eyJpZCI6IjAxOTMzZjY5LTc2N2MtNzk5Zi1iNDg0LTE5YzFmNjA5OWIyZCIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D" style="color: white;">Teams</a>
+</footer>
+
+</body>
+
+</html>
